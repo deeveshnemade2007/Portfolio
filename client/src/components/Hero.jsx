@@ -116,7 +116,11 @@ const Hero = ({ profile, resume }) => {
               <div className="absolute -inset-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl blur-md opacity-60 group-hover:opacity-100 transition duration-500" />
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl">
                 <img
-                  src={profile.avatar_url || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600'}
+                  src={
+                    profile.avatar_url?.startsWith('/uploads/')
+                       ? `${import.meta.env.VITE_API_URL}${profile.avatar_url}`
+                       : profile.avatar_url || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600'
+                  }
                   alt={profile.full_name}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
