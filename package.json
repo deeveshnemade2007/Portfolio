@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-cms-root",
+  "version": "1.0.0",
+  "description": "Fullstack Portfolio Website & CMS",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm --prefix server install && npm --prefix client install",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server start",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev"
+  }
+}
