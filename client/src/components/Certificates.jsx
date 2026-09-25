@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+const API_URL = import.meta.env.VITE_API_URL; 
 import { Award, FileText, Download, ExternalLink, Calendar, Eye, X, ShieldCheck } from 'lucide-react';
 
 const Certificates = ({ certificates = [] }) => {
@@ -29,6 +31,9 @@ const Certificates = ({ certificates = [] }) => {
             {certificates.map((cert) => {
               const isPdf = cert.file_type === 'pdf' || (cert.file_url && cert.file_url.endsWith('.pdf'));
 
+              const fileUrl = cert.file_url?.startsWith('/uploads/')
+                ? `${API_URL}${cert.file_url}`
+                : cert.file_url;
               return (
                 <div
                   key={cert.id}
@@ -88,7 +93,7 @@ const Certificates = ({ certificates = [] }) => {
 
                       {cert.file_url && (
                         <a
-                          href={cert.file_url}
+                          href={fileUrl}
                           download={cert.title || 'Certificate'}
                           target="_blank"
                           rel="noreferrer"
@@ -130,13 +135,21 @@ const Certificates = ({ certificates = [] }) => {
               <div className="flex-1 bg-slate-950 rounded-xl overflow-hidden min-h-[400px] flex items-center justify-center border border-slate-800">
                 {activePreview.file_type === 'pdf' || (activePreview.file_url && activePreview.file_url.endsWith('.pdf')) ? (
                   <iframe
-                    src={activePreview.file_url}
+                    src={
+                      activePreview.file_url?.startsWith('/uploads/')
+                        ? `${API_URL}${activePreview.file_url}`
+                        : activePreview.file_url
+                    }
                     title={activePreview.title}
                     className="w-full h-[550px] border-none"
                   />
                 ) : (
                   <img
-                    src={activePreview.file_url}
+                    src={
+                      activePreview.file_url?.startsWith('/uploads/')
+                        ? `${API_URL}${activePreview.file_url}`
+                        : activePreview.file_url
+                    }
                     alt={activePreview.title}
                     className="max-h-[550px] max-w-full object-contain p-2"
                   />
