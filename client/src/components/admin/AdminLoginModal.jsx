@@ -18,19 +18,6 @@ const AdminLoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
     const inputUser = username.trim();
     const inputPass = password.trim();
 
-    const customPassword = localStorage.getItem('portfolio_admin_password') || 'admin123';
-    const customUsername = localStorage.getItem('portfolio_admin_username') || 'admin';
-
-    if ((inputUser === customUsername || inputUser === 'admin') && (inputPass === customPassword || inputPass === 'admin123')) {
-      const localToken = 'local_admin_token_' + Date.now();
-      const localAdmin = { id: 1, username: inputUser };
-      localStorage.setItem('portfolio_token', localToken);
-      onLoginSuccess(localToken, localAdmin);
-      onClose();
-      setLoading(false);
-      return;
-    }
-
     try {
       const res = await axios.post('/api/auth/login', { username: inputUser, password: inputPass });
       const { token, admin } = res.data;
