@@ -80,13 +80,5 @@ Access the application in your browser at `http://localhost:5000`.
 
 ---
 
-## 🔑 Admin CMS Access
-
-- Click **Admin Portal** in the website header or footer.
-- **Default Username**: `admin`
-- **Default Password**: `admin123` *(Can be updated in CMS Security settings)*
-
----
-
 ## 📄 License
 MIT License
