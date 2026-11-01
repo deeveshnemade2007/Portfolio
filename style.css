@@ -1569,11 +1569,11 @@ h4,
     height: 100%;
     z-index: 0;
     pointer-events: none;
-    opacity: .5
+    opacity: .3
 }
 
 [data-theme="light"] #fluid {
-    opacity: .35
+    opacity: .2
 }
 
 main,
@@ -1669,4 +1669,22 @@ header .wrap {
 
 .abg {
     margin-top: 0
+}
+
+
+/* ===== Card tilt (pair with card-tilt.js) ===== */
+
+:root {
+    --fx1: 0, 245, 255
+}
+
+:root[data-theme="light"] {
+    --fx1: 8, 145, 178
+}
+
+html [data-fx].fx-live {
+    will-change: transform;
+    border-color: rgba(var(--fx1), .6);
+    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) !important;
+    transition: opacity .8s, border-color .3s, box-shadow .3s
 }

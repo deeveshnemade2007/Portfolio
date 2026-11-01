@@ -71,18 +71,7 @@
     }
     addEventListener('scroll', spy, { passive: true });
     spy();
-    /* tilt */
-    if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
-        document.querySelectorAll('[data-tilt]').forEach(function(c) {
-            c.addEventListener('mousemove', function(e) {
-                var r = c.getBoundingClientRect(),
-                    x = (e.clientX - r.left) / r.width - .5,
-                    y = (e.clientY - r.top) / r.height - .5;
-                c.style.transform = 'perspective(1000px) rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)'
-            });
-            c.addEventListener('mouseleave', function() { c.style.transform = '' })
-        })
-    }
+
     /* copy */
     var tip = $('#tip'),
         em = 'deeveshnemade2007@gmail.com';
@@ -184,4 +173,67 @@
             }
         }
     })();
+})();
+
+/* ===== Card tilt: boxes lift and tilt slightly toward the cursor ===== */
+(function() {
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    /* t: tilt deg, l: lift px, k: follow speed */
+    var CFG = { project: { t: 7, l: -4, k: .14 }, skill: { t: 4, l: -3, k: .22 }, chip: { t: 0, l: -1, k: .3 }, calm: { t: 1.6, l: -1, k: .08 }, soft: { t: 2.6, l: -2, k: .12 } };
+    [
+        ['.pc', 'project'],
+        ['.sc', 'skill'],
+        ['.sc .tags span', 'chip'],
+        ['.ex', 'calm'],
+        ['.ecard', 'calm'],
+        ['.mini', 'soft'],
+        ['.cta', 'soft'],
+        ['.mail', 'soft']
+    ].forEach(function(m) {
+        document.querySelectorAll(m[0]).forEach(function(el) { el.setAttribute('data-fx', m[1]);
+            bind(el, CFG[m[1]]) })
+    });
+
+    function bind(el, c) {
+        var nx = .5,
+            ny = .5,
+            tx = .5,
+            ty = .5,
+            on = 0,
+            live = false,
+            raf = 0,
+            st = el.style;
+
+        function pos(e) { var r = el.getBoundingClientRect();
+            tx = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+            ty = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)) }
+
+        function run() { if (!raf) raf = requestAnimationFrame(tick) }
+
+        function tick() {
+            raf = 0;
+            nx += (tx - nx) * c.k;
+            ny += (ty - ny) * c.k;
+            on += ((live ? 1 : 0) - on) * .14;
+            st.setProperty('--rx', ((.5 - ny) * c.t * 2).toFixed(2) + 'deg');
+            st.setProperty('--ry', ((nx - .5) * c.t * 2).toFixed(2) + 'deg');
+            st.setProperty('--ty', (c.l * on).toFixed(2) + 'px');
+            if (live || on > .01 || Math.abs(nx - tx) > .002 || Math.abs(ny - ty) > .002) run();
+            else el.classList.remove('fx-live')
+        }
+        el.addEventListener('pointerenter', function(e) { if (e.pointerType === 'touch') return;
+            pos(e); if (!el.classList.contains('fx-live')) { nx = .5;
+                ny = .5 }
+            live = true;
+            el.classList.add('fx-live');
+            run() });
+        el.addEventListener('pointermove', function(e) { if (!live || e.pointerType === 'touch') return;
+            pos(e);
+            run() });
+        el.addEventListener('pointerleave', function() { live = false;
+            tx = .5;
+            ty = .5;
+            run() })
+    }
 })();
