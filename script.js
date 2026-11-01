@@ -175,10 +175,11 @@
     })();
 })();
 
-/* ===== Card tilt: boxes lift and tilt slightly toward the cursor ===== */
+/* ===== Card tilt: boxes lift and tilt slightly toward the cursor or finger ===== */
 (function() {
     var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    if (reduce) return;
+    var fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
     /* t: tilt deg, l: lift px, k: follow speed */
     var CFG = { project: { t: 7, l: -4, k: .14 }, skill: { t: 4, l: -3, k: .22 }, chip: { t: 0, l: -1, k: .3 }, calm: { t: 1.6, l: -1, k: .08 }, soft: { t: 2.6, l: -2, k: .12 } };
     [
@@ -222,18 +223,28 @@
             if (live || on > .01 || Math.abs(nx - tx) > .002 || Math.abs(ny - ty) > .002) run();
             else el.classList.remove('fx-live')
         }
-        el.addEventListener('pointerenter', function(e) { if (e.pointerType === 'touch') return;
-            pos(e); if (!el.classList.contains('fx-live')) { nx = .5;
+
+        function start(p) { pos(p); if (!el.classList.contains('fx-live')) { nx = .5;
                 ny = .5 }
             live = true;
             el.classList.add('fx-live');
-            run() });
-        el.addEventListener('pointermove', function(e) { if (!live || e.pointerType === 'touch') return;
-            pos(e);
-            run() });
-        el.addEventListener('pointerleave', function() { live = false;
+            run() }
+
+        function end() { live = false;
             tx = .5;
             ty = .5;
-            run() })
+            run() }
+        if (fine) {
+            el.addEventListener('pointerenter', function(e) { if (e.pointerType !== 'touch') start(e) });
+            el.addEventListener('pointermove', function(e) { if (live && e.pointerType !== 'touch') { pos(e);
+                    run() } });
+            el.addEventListener('pointerleave', end)
+        }
+        /* touch screens: tilt toward the finger while it is on the box, ease back on release */
+        el.addEventListener('touchstart', function(e) { if (e.touches[0]) start(e.touches[0]) }, { passive: true });
+        el.addEventListener('touchmove', function(e) { if (live && e.touches[0]) { pos(e.touches[0]);
+                run() } }, { passive: true });
+        el.addEventListener('touchend', end, { passive: true });
+        el.addEventListener('touchcancel', end, { passive: true })
     }
 })();
