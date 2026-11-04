@@ -1688,3 +1688,22 @@ html [data-fx].fx-live {
     transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) !important;
     transition: opacity .8s, border-color .3s, box-shadow .3s
 }
+
+.mini .dt {
+    display: block;
+    margin-top: .35rem;
+    font-style: normal;
+    font-size: .76rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    color: var(--ac)
+}
+
+.ex {
+    transition: border-color .3s, box-shadow .3s
+}
+
+.ex:hover {
+    border-color: var(--ac);
+    box-shadow: 0 0 0 1px rgba(0, 245, 255, .35), 0 16px 40px -14px rgba(0, 245, 255, .5)
+}

@@ -176,17 +176,19 @@
 })();
 
 /* ===== Card tilt: boxes lift and tilt slightly toward the cursor or finger ===== */
+
 (function() {
     var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) return;
     var fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+
     /* t: tilt deg, l: lift px, k: follow speed */
-    var CFG = { project: { t: 7, l: -4, k: .14 }, skill: { t: 4, l: -3, k: .22 }, chip: { t: 0, l: -1, k: .3 }, calm: { t: 1.6, l: -1, k: .08 }, soft: { t: 2.6, l: -2, k: .12 } };
+    var CFG = { project: { t: 7, l: -4, k: .14 }, skill: { t: 4, l: -3, k: .22 }, chip: { t: 0, l: -1, k: .3 }, calm: { t: 1.6, l: -1, k: .08 }, exp: { t: 5, l: -4, k: .14 }, soft: { t: 2.6, l: -2, k: .12 } };
     [
         ['.pc', 'project'],
         ['.sc', 'skill'],
         ['.sc .tags span', 'chip'],
-        ['.ex', 'calm'],
+        ['.ex', 'exp'],
         ['.ecard', 'calm'],
         ['.mini', 'soft'],
         ['.cta', 'soft'],
@@ -240,6 +242,7 @@
                     run() } });
             el.addEventListener('pointerleave', end)
         }
+
         /* touch screens: tilt toward the finger while it is on the box, ease back on release */
         el.addEventListener('touchstart', function(e) { if (e.touches[0]) start(e.touches[0]) }, { passive: true });
         el.addEventListener('touchmove', function(e) { if (live && e.touches[0]) { pos(e.touches[0]);
