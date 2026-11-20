@@ -2308,52 +2308,102 @@ html [data-fx].fx-live {
 }
 
 
-/* ===== Theme: Professional ===== */
+/* Professional - Dark */
 
 :root[data-style="professional"]:not([data-theme="light"]) {
-    --bg: #0B1220;
-    --bg2: #101A2E;
-    --card: #14203A;
-    --tx: #F1F5F9;
-    --tx2: #9AA8BF;
-    --ac: #4F8CFF;
-    --b: #38BDF8;
-    --p: #818CF8;
-    --onac: #071022;
-    --act: #7FB0FF;
-    --acrgb: 79, 140, 255;
-    --sandrgb: 129, 140, 248;
-    --fx1: 79, 140, 255;
-    --bd: rgba(148, 163, 184, .22);
-    --glass: rgba(20, 32, 58, .7);
-    --nav: rgba(11, 18, 32, .85);
-    --cardt: rgba(20, 32, 58, .6);
-    --cardt2: rgba(16, 26, 46, .55);
-    --fl1: 79, 140, 255;
-    --fl2: 56, 189, 248;
-    --fl3: 129, 140, 248;
+    --bg: #171512;
+    --bg2: #211E19;
+    --card: #29241E;
+    --tx: #F4EDE2;
+    --tx2: #B9AA98;
+    --ac: #D69A70;
+    --b: #A77B55;
+    --p: #B78B9C;
+    --onac: #171512;
+    --bd: rgba(214, 154, 112, .25);
+    --glass: rgba(41, 36, 30, .9);
+    --nav: rgba(23, 21, 18, .95);
 }
 
+
+/* Professional - Light */
+
 :root[data-style="professional"][data-theme="light"] {
-    --bg: #F8FAFC;
-    --bg2: #EEF2F7;
-    --card: #FFFFFF;
-    --tx: #0F172A;
-    --tx2: #475569;
-    --ac: #1D4ED8;
-    --b: #0284C7;
-    --p: #4F46E5;
+    --bg: #F5F0E8;
+    --bg2: #EAE2D5;
+    --card: #FFFCF6;
+    --tx: #29251F;
+    --tx2: #71685D;
+    --ac: #A34F35;
+    --b: #C18B57;
+    --p: #795C70;
     --onac: #FFFFFF;
-    --act: #1D4ED8;
-    --acrgb: 29, 78, 216;
-    --sandrgb: 79, 70, 229;
-    --fx1: 29, 78, 216;
-    --bd: rgba(15, 23, 42, .14);
-    --glass: rgba(255, 255, 255, .8);
-    --nav: rgba(248, 250, 252, .9);
-    --cardt: rgba(255, 255, 255, .75);
-    --cardt2: rgba(238, 242, 247, .65);
-    --fl1: 29, 78, 216;
-    --fl2: 2, 132, 199;
-    --fl3: 79, 70, 229;
+    --bd: rgba(91, 66, 47, .2);
+    --glass: rgba(255, 252, 246, .85);
+    --nav: rgba(245, 240, 232, .95);
+}
+
+:root[data-style="editorial"] body {
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+:root[data-style="professional"] h1,
+:root[data-style="professional"] h2,
+:root[data-style="professional"] h3,
+:root[data-style="professional"] h4 {
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: -.035em;
+    text-transform: none;
+}
+
+:root[data-style="professional"] h1 {
+    font-weight: 500;
+    line-height: 1;
+}
+
+:root[data-style="professional"] h1 .l2 {
+    background: none;
+    color: var(--ac);
+    -webkit-text-fill-color: var(--ac);
+}
+
+:root[data-style="professional"] .pc,
+:root[data-style="professional"] .sc,
+:root[data-style="professional"] .ex,
+:root[data-style="professional"] .mini,
+:root[data-style="professional"] .info,
+:root[data-style="professional"] .cta {
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 8px;
+}
+
+:root[data-style="professional"] .pc {
+    background: var(--card);
+}
+
+:root[data-style="professional"] .pc:hover,
+:root[data-style="professional"] .sc:hover,
+:root[data-style="professional"] .mini:hover,
+:root[data-style="professional"] .ex:hover {
+    box-shadow: 0 8px 24px rgba(65, 45, 30, .12);
+    transform: translateY(-3px);
+}
+
+:root[data-style="professional"] .btn {
+    border-radius: 6px;
+}
+
+:root[data-style="professional"] .pill,
+:root[data-style="professional"] .dur,
+:root[data-style="professional"] .links a {
+    border-radius: 5px;
+}
+
+:root[data-style="professional"] .glow,
+:root[data-style="professional"] #fluid,
+:root[data-style="professional"] #circ,
+:root[data-style="professional"] body::after {
+    display: none;
 }
