@@ -8,6 +8,8 @@
     --b: #3B82F6;
     --p: #A855F7;
     --onac: #04121a;
+    --acrgb: 0, 245, 255;
+    --sandrgb: 168, 85, 247;
     --bd: rgba(0, 245, 255, .2);
     --glass: rgba(17, 24, 39, .6);
     --nav: rgba(7, 11, 20, .6);
@@ -26,6 +28,8 @@
     --b: #2563EB;
     --p: #7C3AED;
     --onac: #fff;
+    --acrgb: 8, 145, 178;
+    --sandrgb: 124, 58, 237;
     --bd: rgba(8, 145, 178, .2);
     --glass: rgba(255, 255, 255, .7);
     --nav: rgba(248, 250, 252, .7)
@@ -46,7 +50,7 @@ body {
     margin: 0;
     background: var(--bg);
     color: var(--tx);
-    font-family: Manrope, system-ui, sans-serif;
+    font-family: Inter, system-ui, sans-serif;
     line-height: 1.65;
     font-size: clamp(1rem, .95rem + .2vw, 1.1rem);
     transition: background .4s, color .4s;
@@ -306,7 +310,7 @@ nav {
     max-height: 700px;
     right: -15%;
     top: 5%;
-    background: radial-gradient(circle, rgba(0, 245, 255, .2), rgba(168, 85, 247, .1) 45%, transparent 68%);
+    background: radial-gradient(circle, rgba(var(--acrgb), .2), rgba(var(--sandrgb), .1) 45%, transparent 68%);
     pointer-events: none
 }
 
@@ -422,7 +426,7 @@ h1 .l2 {
 
 .btn.p:hover {
     transform: scale(1.04);
-    box-shadow: 0 0 28px rgba(0, 245, 255, .55)
+    box-shadow: 0 0 28px rgba(var(--acrgb), .55)
 }
 
 .btn.o {
@@ -431,8 +435,8 @@ h1 .l2 {
 }
 
 .btn.o:hover {
-    background: rgba(0, 245, 255, .14);
-    box-shadow: 0 0 22px rgba(0, 245, 255, .3)
+    background: rgba(var(--acrgb), .14);
+    box-shadow: 0 0 22px rgba(var(--acrgb), .3)
 }
 
 .btn.sm {
@@ -537,7 +541,7 @@ h1 .l2 {
 .sc:hover {
     transform: translateY(-5px);
     border-color: var(--ac);
-    box-shadow: 0 12px 36px -12px rgba(0, 245, 255, .45)
+    box-shadow: 0 12px 36px -12px rgba(var(--acrgb), .45)
 }
 
 .sc h3 {
@@ -600,7 +604,7 @@ h1 .l2 {
     height: 13px;
     border-radius: 50%;
     background: var(--ac);
-    box-shadow: 0 0 0 5px rgba(0, 245, 255, .2)
+    box-shadow: 0 0 0 5px rgba(var(--acrgb), .2)
 }
 
 .ex .k {
@@ -660,7 +664,7 @@ h1 .l2 {
 
 .pc:hover {
     border-color: var(--ac);
-    box-shadow: 0 0 0 1px var(--ac), 0 18px 50px -18px rgba(0, 245, 255, .5)
+    box-shadow: 0 0 0 1px var(--ac), 0 18px 50px -18px rgba(var(--acrgb), .5)
 }
 
 .vis {
@@ -791,7 +795,7 @@ input:focus,
 textarea:focus {
     outline: none;
     border-color: var(--ac);
-    box-shadow: 0 0 0 3px rgba(0, 245, 255, .25)
+    box-shadow: 0 0 0 3px rgba(var(--acrgb), .25)
 }
 
 textarea {
@@ -1114,7 +1118,7 @@ footer {
 
 .mini:hover {
     border-color: var(--ac);
-    box-shadow: 0 0 22px -6px rgba(0, 245, 255, .4);
+    box-shadow: 0 0 22px -6px rgba(var(--acrgb), .4);
     transform: translateY(-3px)
 }
 
@@ -1251,7 +1255,7 @@ footer {
 
 .mail:hover {
     border-color: var(--ac);
-    box-shadow: 0 0 18px -6px rgba(0, 245, 255, .5)
+    box-shadow: 0 0 18px -6px rgba(var(--acrgb), .5)
 }
 
 .mail a {
@@ -1290,7 +1294,7 @@ footer {
 }
 
 .soc a:hover {
-    box-shadow: 0 0 16px rgba(0, 245, 255, .4)
+    box-shadow: 0 0 16px rgba(var(--acrgb), .4)
 }
 
 @media(max-width:820px) {
@@ -1307,7 +1311,7 @@ footer {
 
 .logo svg,
 .mono svg {
-    filter: drop-shadow(0 0 4px rgba(0, 245, 255, .6))
+    filter: drop-shadow(0 0 4px rgba(var(--acrgb), .6))
 }
 
 .mono svg {
@@ -1343,7 +1347,7 @@ footer {
         border-radius: 16px;
         padding: .6rem;
         margin-top: .5rem;
-        box-shadow: 0 18px 40px -16px rgba(0, 245, 255, .3);
+        box-shadow: 0 18px 40px -16px rgba(var(--acrgb), .3);
         transform: translateY(-8px);
         opacity: 0;
         visibility: hidden;
@@ -1359,7 +1363,7 @@ footer {
         font-size: 1rem
     }
     .links a:hover {
-        background: rgba(0, 245, 255, .08)
+        background: rgba(var(--acrgb), .08)
     }
     .links a.on::after {
         display: none
@@ -1512,7 +1516,7 @@ footer {
 
 .f2 a:hover {
     border-color: var(--ac);
-    box-shadow: 0 0 14px -4px rgba(0, 245, 255, .5);
+    box-shadow: 0 0 14px -4px rgba(var(--acrgb), .5);
     transform: translateX(3px)
 }
 
@@ -1646,7 +1650,7 @@ header .wrap {
     border-radius: 20px;
     padding: clamp(1.4rem, 4vw, 2.4rem);
     margin-bottom: 3rem;
-    background: linear-gradient(135deg, rgba(0, 245, 255, .08), rgba(168, 85, 247, .08));
+    background: linear-gradient(135deg, rgba(var(--acrgb), .08), rgba(var(--sandrgb), .08));
     display: flex;
     flex-direction: column;
     align-items: flex-start
@@ -1675,17 +1679,17 @@ header .wrap {
 /* ===== Card tilt (pair with card-tilt.js) ===== */
 
 :root {
-    --fx1: 0, 245, 255
+    --fx1: 47, 107, 255
 }
 
 :root[data-theme="light"] {
-    --fx1: 8, 145, 178
+    --fx1: 47, 107, 255
 }
 
 html [data-fx].fx-live {
     will-change: transform;
     border-color: rgba(var(--fx1), .6);
-    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) !important;
+    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px))!important;
     transition: opacity .8s, border-color .3s, box-shadow .3s
 }
 
@@ -1705,5 +1709,600 @@ html [data-fx].fx-live {
 
 .ex:hover {
     border-color: var(--ac);
-    box-shadow: 0 0 0 1px rgba(0, 245, 255, .35), 0 16px 40px -14px rgba(0, 245, 255, .5)
+    box-shadow: 0 0 0 1px rgba(var(--acrgb), .35), 0 16px 40px -14px rgba(var(--acrgb), .5)
+}
+
+
+/* ===== Transparent glass boxes ===== */
+
+:root {
+    --cardt: rgba(17, 24, 39, .5);
+    --cardt2: rgba(13, 19, 33, .45)
+}
+
+:root[data-theme="light"] {
+    --cardt: rgba(255, 255, 255, .55);
+    --cardt2: rgba(241, 245, 249, .5)
+}
+
+.pc,
+.pc:first-child {
+    background: linear-gradient(160deg, var(--cardt), var(--cardt2))
+}
+
+.ecard {
+    background: linear-gradient(150deg, var(--cardt), var(--cardt2))
+}
+
+.ex,
+.mini {
+    background: var(--cardt)
+}
+
+.tags span {
+    background: var(--cardt2)
+}
+
+.pc,
+.ex,
+.mini,
+.ecard,
+.cta,
+.mail {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px)
+}
+
+.tswrap {
+    position: relative
+}
+
+.tsmenu {
+    position: absolute;
+    top: calc(100% + .6rem);
+    right: 0;
+    min-width: 160px;
+    background: var(--bg);
+    border: 1px solid var(--bd);
+    padding: .35rem;
+    display: grid;
+    gap: .15rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: .25s;
+    z-index: 60;
+    border-radius: 8px
+}
+
+.tsmenu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: none
+}
+
+.tsmenu button {
+    background: none;
+    border: 0;
+    color: var(--tx2);
+    font: inherit;
+    font-size: .9rem;
+    text-align: left;
+    padding: .6rem .8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem
+}
+
+.tsmenu button:hover {
+    background: rgba(var(--acrgb), .1);
+    color: var(--tx)
+}
+
+.tsmenu button[aria-checked="true"] {
+    color: var(--act, var(--ac))
+}
+
+.tsmenu button[aria-checked="true"]::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor
+}
+
+.desc {
+    font-size: .92rem;
+    line-height: 1.6
+}
+
+@media(min-width:1001px) {
+    .pc:nth-child(n+4) {
+        grid-column: span 3
+    }
+}
+
+
+/* ===== Theme: Default (neon cyan / blue / purple) ===== */
+
+:root[data-style="default"] {
+    --fl1: 0, 245, 255;
+    --fl2: 59, 130, 246;
+    --fl3: 168, 85, 247;
+    --fx1: 0, 245, 255;
+    --cardt: rgba(17, 24, 39, .5);
+    --cardt2: rgba(13, 19, 33, .45)
+}
+
+:root[data-style="default"][data-theme="light"] {
+    --fx1: 8, 145, 178;
+    --cardt: rgba(255, 255, 255, .55);
+    --cardt2: rgba(241, 245, 249, .5)
+}
+
+:root[data-style="default"] body {
+    font-family: Manrope, Inter, system-ui, sans-serif
+}
+
+
+/* ===== Theme: Editorial (charcoal / sand / electric blue) ===== */
+
+:root[data-style="editorial"] {
+    --bg: #1E1E1C;
+    --bg2: #252523;
+    --card: #2B2B28;
+    --tx: #F1EADB;
+    --tx2: #A9A08E;
+    --ac: #2F6BFF;
+    --b: #2F6BFF;
+    --p: #D8CBB3;
+    --onac: #fff;
+    --acrgb: 47, 107, 255;
+    --sandrgb: 216, 203, 179;
+    --bd: rgba(216, 203, 179, .18);
+    --glass: rgba(43, 43, 40, .6);
+    --nav: rgba(30, 30, 28, .72);
+    --fl1: 47, 107, 255;
+    --fl2: 216, 203, 179;
+    --fl3: 111, 151, 255
+}
+
+:root[data-style="editorial"][data-theme="light"] {
+    --bg: #EFE8DA;
+    --bg2: #D8CBB3;
+    --card: #F6F1E6;
+    --tx: #1E1E1C;
+    --tx2: #5A554A;
+    --ac: #2F6BFF;
+    --b: #2F6BFF;
+    --p: #1E1E1C;
+    --onac: #fff;
+    --acrgb: 47, 107, 255;
+    --sandrgb: 30, 30, 28;
+    --bd: rgba(30, 30, 28, .18);
+    --glass: rgba(246, 241, 230, .7);
+    --nav: rgba(239, 232, 218, .78)
+}
+
+:root[data-style="editorial"] {
+    --act: #7FA3FF;
+    --cardt: rgba(43, 43, 40, .55);
+    --cardt2: rgba(37, 37, 35, .5);
+    --fx1: 47, 107, 255
+}
+
+:root[data-style="editorial"][data-theme="light"] {
+    --act: #1F4FD8;
+    --cardt: rgba(246, 241, 230, .7);
+    --cardt2: rgba(216, 203, 179, .4);
+    --fx1: 47, 107, 255
+}
+
+:root[data-style="editorial"] h1,
+:root[data-style="editorial"] h2,
+:root[data-style="editorial"] h3,
+:root[data-style="editorial"] h4,
+:root[data-style="editorial"] .tagl {
+    font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+    font-weight: 500
+}
+
+:root[data-style="editorial"] .eyebrow,
+:root[data-style="editorial"] .wm,
+:root[data-style="editorial"] .btn,
+:root[data-style="editorial"] .dur,
+:root[data-style="editorial"] .ex .k,
+:root[data-style="editorial"] .pill {
+    font-family: Inter, system-ui, sans-serif
+}
+
+:root[data-style="editorial"] h1 {
+    text-transform: none;
+    font-weight: 500;
+    letter-spacing: -.035em;
+    line-height: .92
+}
+
+:root[data-style="editorial"] h1 .l2 {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: var(--act);
+    font-style: italic
+}
+
+:root[data-style="editorial"] h2 {
+    font-weight: 500;
+    letter-spacing: -.02em
+}
+
+:root[data-style="editorial"] h1 .ac,
+:root[data-style="editorial"] h2 .ac,
+:root[data-style="editorial"] .tagl .ac {
+    font-style: italic
+}
+
+:root[data-style="editorial"] .js .in h2 .ac {
+    animation: none
+}
+
+:root[data-style="editorial"] .eyebrow,
+:root[data-style="editorial"] .ac,
+:root[data-style="editorial"] .ex .k,
+:root[data-style="editorial"] .dur,
+:root[data-style="editorial"] .sc h3,
+:root[data-style="editorial"] .mini .dt,
+:root[data-style="editorial"] .fg h4,
+:root[data-style="editorial"] .sub2,
+:root[data-style="editorial"] .ab2 b,
+:root[data-style="editorial"] .mini .ic,
+:root[data-style="editorial"] .loc .ic,
+:root[data-style="editorial"] .links a.on,
+:root[data-style="editorial"] .f2 a:hover,
+:root[data-style="editorial"] .mail a:hover,
+:root[data-style="editorial"] .info .row:hover,
+:root[data-style="editorial"] .cp:hover {
+    color: var(--act)
+}
+
+:root[data-style="editorial"] .logo,
+:root[data-style="editorial"] .mono {
+    color: var(--tx)
+}
+
+:root[data-style="editorial"] .logo svg,
+:root[data-style="editorial"] .mono svg {
+    filter: none
+}
+
+:root[data-style="editorial"] .logo:hover svg,
+:root[data-style="editorial"] .mono:hover svg {
+    filter: none;
+    transform: scale(1.05)
+}
+
+:root[data-style="editorial"] .links a.on::after {
+    box-shadow: none
+}
+
+:root[data-style="editorial"] .btn {
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: .74rem;
+    font-weight: 600;
+    padding: .95rem 1.7rem
+}
+
+:root[data-style="editorial"] .btn.sm {
+    padding: .65rem 1.1rem;
+    font-size: .68rem
+}
+
+:root[data-style="editorial"] .btn.p:hover {
+    background: transparent;
+    color: var(--act);
+    box-shadow: none;
+    transform: none
+}
+
+:root[data-style="editorial"] .btn.o:hover {
+    background: rgba(var(--acrgb), .12);
+    box-shadow: none
+}
+
+:root[data-style="editorial"] .pill,
+:root[data-style="editorial"] .dur {
+    border-radius: 2px
+}
+
+:root[data-style="editorial"] .links a {
+    border-radius: 4px
+}
+
+:root[data-style="editorial"] .tags span {
+    border-radius: 3px
+}
+
+:root[data-style="editorial"] .sc,
+:root[data-style="editorial"] .ex,
+:root[data-style="editorial"] .mini,
+:root[data-style="editorial"] .ecard,
+:root[data-style="editorial"] .pc,
+:root[data-style="editorial"] .cta,
+:root[data-style="editorial"] .mail,
+:root[data-style="editorial"] .info {
+    border-radius: 6px
+}
+
+:root[data-style="editorial"] .sc:hover,
+:root[data-style="editorial"] .pc:hover,
+:root[data-style="editorial"] .ex:hover,
+:root[data-style="editorial"] .mini:hover,
+:root[data-style="editorial"] .mail:hover,
+:root[data-style="editorial"] .soc a:hover,
+:root[data-style="editorial"] .f2 a:hover {
+    box-shadow: 0 14px 34px -18px rgba(0, 0, 0, .45)
+}
+
+:root[data-style="editorial"] section {
+    border-top: 1px solid var(--bd)
+}
+
+:root[data-style="editorial"] #home {
+    border-top: 0
+}
+
+
+/* ===== Theme: Cyberpunk (neon yellow / cyan / magenta) ===== */
+
+:root[data-style="cyberpunk"] {
+    --bg: #0B0A12;
+    --bg2: #12101C;
+    --card: #161225;
+    --tx: #EDEBFF;
+    --tx2: #9D97C7;
+    --ac: #FCEE0A;
+    --b: #05D9E8;
+    --p: #FF2A6D;
+    --onac: #0B0A12;
+    --acrgb: 252, 238, 10;
+    --sandrgb: 255, 42, 109;
+    --bd: rgba(252, 238, 10, .2);
+    --glass: rgba(22, 18, 37, .6);
+    --nav: rgba(11, 10, 18, .72);
+    --fl1: 252, 238, 10;
+    --fl2: 5, 217, 232;
+    --fl3: 255, 42, 109
+}
+
+:root[data-style="cyberpunk"][data-theme="light"] {
+    --bg: #F1EFFA;
+    --bg2: #E3DFF5;
+    --card: #FFFFFF;
+    --tx: #14102B;
+    --tx2: #4B4670;
+    --ac: #E0007A;
+    --b: #0098B8;
+    --p: #6B2FD6;
+    --onac: #fff;
+    --acrgb: 224, 0, 122;
+    --sandrgb: 0, 152, 184;
+    --bd: rgba(20, 16, 43, .16);
+    --glass: rgba(255, 255, 255, .7);
+    --nav: rgba(241, 239, 250, .78)
+}
+
+:root[data-style="cyberpunk"] {
+    --act: #05D9E8;
+    --cardt: rgba(22, 18, 37, .55);
+    --cardt2: rgba(18, 16, 28, .5);
+    --fx1: 252, 238, 10
+}
+
+:root[data-style="cyberpunk"][data-theme="light"] {
+    --act: #B0005A;
+    --cardt: rgba(255, 255, 255, .7);
+    --cardt2: rgba(227, 223, 245, .5);
+    --fx1: 224, 0, 122
+}
+
+:root[data-style="cyberpunk"] h1,
+:root[data-style="cyberpunk"] h2,
+:root[data-style="cyberpunk"] h3,
+:root[data-style="cyberpunk"] h4,
+:root[data-style="cyberpunk"] .tagl,
+:root[data-style="cyberpunk"] .wm,
+:root[data-style="cyberpunk"] .btn {
+    font-family: 'Chakra Petch', Inter, system-ui, sans-serif
+}
+
+:root[data-style="cyberpunk"] .eyebrow,
+:root[data-style="cyberpunk"] .dur,
+:root[data-style="cyberpunk"] .ex .k,
+:root[data-style="cyberpunk"] .mini .dt,
+:root[data-style="cyberpunk"] .fg h4,
+:root[data-style="cyberpunk"] .pill,
+:root[data-style="cyberpunk"] .tip {
+    font-family: 'JetBrains Mono', ui-monospace, monospace
+}
+
+:root[data-style="cyberpunk"] h1 {
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: .92
+}
+
+:root[data-style="cyberpunk"] h1 .l2 {
+    filter: drop-shadow(0 0 16px rgba(var(--acrgb), .35))
+}
+
+:root[data-style="cyberpunk"] h2 {
+    font-weight: 700;
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+    font-size: clamp(1.8rem, 4.4vw, 3rem)
+}
+
+:root[data-style="cyberpunk"] .tagl {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 3.1vw, 2.4rem)
+}
+
+:root[data-style="cyberpunk"] .eyebrow::before {
+    content: "// "
+}
+
+:root[data-style="cyberpunk"] .eyebrow,
+:root[data-style="cyberpunk"] .ex .k,
+:root[data-style="cyberpunk"] .dur,
+:root[data-style="cyberpunk"] .sc h3,
+:root[data-style="cyberpunk"] .mini .dt,
+:root[data-style="cyberpunk"] .fg h4,
+:root[data-style="cyberpunk"] .sub2,
+:root[data-style="cyberpunk"] .mini .ic,
+:root[data-style="cyberpunk"] .loc .ic,
+:root[data-style="cyberpunk"] .ab2 b,
+:root[data-style="cyberpunk"] .links a.on,
+:root[data-style="cyberpunk"] .f2 a:hover,
+:root[data-style="cyberpunk"] .mail a:hover,
+:root[data-style="cyberpunk"] .info .row:hover,
+:root[data-style="cyberpunk"] .cp:hover {
+    color: var(--act)
+}
+
+:root[data-style="cyberpunk"] .ac,
+:root[data-style="cyberpunk"] h1 .ac,
+:root[data-style="cyberpunk"] h2 .ac,
+:root[data-style="cyberpunk"] .tagl .ac {
+    color: var(--ac)
+}
+
+:root[data-style="cyberpunk"] h2 .ac,
+:root[data-style="cyberpunk"] .tagl .ac {
+    text-shadow: 0 0 18px rgba(var(--acrgb), .4)
+}
+
+:root[data-style="cyberpunk"] .js .in h2 .ac {
+    animation: none
+}
+
+:root[data-style="cyberpunk"] .glow {
+    background: radial-gradient(circle, rgba(var(--sandrgb), .2), rgba(var(--acrgb), .08) 45%, transparent 68%)
+}
+
+:root[data-style="cyberpunk"] .btn {
+    border: 0;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: .78rem;
+    font-weight: 700;
+    padding: .95rem 1.8rem;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))
+}
+
+:root[data-style="cyberpunk"] .btn.sm {
+    padding: .65rem 1.1rem;
+    font-size: .7rem
+}
+
+:root[data-style="cyberpunk"] .btn.p {
+    background: var(--ac);
+    color: var(--onac)
+}
+
+:root[data-style="cyberpunk"] .btn.p:hover {
+    transform: translateY(-2px);
+    box-shadow: none;
+    filter: brightness(1.12)
+}
+
+:root[data-style="cyberpunk"] .btn.o {
+    background: rgba(var(--acrgb), .08);
+    color: var(--ac);
+    box-shadow: inset 0 0 0 1px var(--ac)
+}
+
+:root[data-style="cyberpunk"] .btn.o:hover {
+    background: rgba(var(--acrgb), .2);
+    box-shadow: inset 0 0 0 1px var(--ac)
+}
+
+:root[data-style="cyberpunk"] .pill,
+:root[data-style="cyberpunk"] .dur,
+:root[data-style="cyberpunk"] .links a,
+:root[data-style="cyberpunk"] .tags span {
+    border-radius: 0
+}
+
+:root[data-style="cyberpunk"] .sc,
+:root[data-style="cyberpunk"] .ex,
+:root[data-style="cyberpunk"] .mini,
+:root[data-style="cyberpunk"] .ecard,
+:root[data-style="cyberpunk"] .pc,
+:root[data-style="cyberpunk"] .cta,
+:root[data-style="cyberpunk"] .mail,
+:root[data-style="cyberpunk"] .info {
+    border-radius: 2px
+}
+
+:root[data-style="cyberpunk"] .sc,
+:root[data-style="cyberpunk"] .ex,
+:root[data-style="cyberpunk"] .mini,
+:root[data-style="cyberpunk"] .pc,
+:root[data-style="cyberpunk"] .ecard {
+    border-left: 2px solid var(--ac)
+}
+
+:root[data-style="cyberpunk"] .sc:hover,
+:root[data-style="cyberpunk"] .pc:hover,
+:root[data-style="cyberpunk"] .ex:hover,
+:root[data-style="cyberpunk"] .mini:hover,
+:root[data-style="cyberpunk"] .mail:hover {
+    border-color: var(--ac);
+    box-shadow: 0 0 0 1px rgba(var(--acrgb), .5), 0 0 26px -6px rgba(var(--acrgb), .45)
+}
+
+:root[data-style="cyberpunk"] .links a.on::after {
+    box-shadow: 0 0 10px var(--ac)
+}
+
+:root[data-style="cyberpunk"] .logo:hover .wm {
+    text-shadow: 2px 0 #FF2A6D, -2px 0 #05D9E8
+}
+
+:root[data-style="cyberpunk"] section {
+    border-top: 1px dashed rgba(var(--acrgb), .22)
+}
+
+:root[data-style="cyberpunk"] #home {
+    border-top: 0
+}
+
+:root[data-style="cyberpunk"] body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99;
+    background: repeating-linear-gradient(0deg, rgba(255, 255, 255, .03) 0 1px, transparent 1px 3px);
+    opacity: .6
+}
+
+:root[data-style="cyberpunk"][data-theme="light"] body::before {
+    display: none
+}
+
+:root[data-style="cyberpunk"] h1 span {
+    width: fit-content;
+    background: linear-gradient(100deg, var(--ac), var(--b));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 16px rgba(var(--acrgb), .35))
 }
